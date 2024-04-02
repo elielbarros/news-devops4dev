@@ -19,6 +19,12 @@ Remover um container por id/nome
 Executa um container com auto remoção ao final de sua execução
 - docker container run --rm <nome-imagem>
 
+Como limpar as imagens que perderam referencia?
+- Execute o comando ```docker image prune```
+
+Como remover uma imagem?
+- Execute o comando ```docker image rm <id/nome>```
+
 Como encontrar uma imagem para executar no docker?
 - Acesse: hub.docker.com
 

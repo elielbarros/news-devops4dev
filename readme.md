@@ -37,3 +37,21 @@ Como utilizar a imagem do postgres?
 
 Como acessar o bash do container postgres?
 - docker container exec -it <container-id>
+
+Como alterar o nome da imagem?
+- Utilize o comando: ```docker tag <nome-anterior> <nome-novo>```
+- Exemplo: ```docker tag conversao-temperatura elielbs/conversao-temperatura:v1```
+- Para usar essa tag como a versão latest, execute o comando:
+- ```docker tag elielbs/conversao-temperatura:v1 elielbs/conversao-temperatura```
+
+Como subir a imagem para o repositorio Docker Registry?
+- Coloque o nome da imagem no padrao: <namespace>/<nome-projeto>:<versao>
+- Exemplo: elielbs/conversao-temperatura:v1
+- Namespace: elielbs
+- Nome do projeto: conversao-temperatura
+- Versao: v1
+- Faça o docker login executando o comando: ```docker login```
+- Execute o comando para fazer o 'push' da imagem criada com o seguinte comando:
+- ```docker push elielbs/conversao-temperatura:v1```
+- Faça o docker logout executando o comando: ```docker logout```
+- <b>Importante definir a versao da imagem BASE utilizada no Dockerfile para garantir que no futuro o projeto não execute.<b>

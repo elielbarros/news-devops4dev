@@ -66,3 +66,17 @@ O que é Label e Selector?
 - Label é um elemento de Chave-Valor que marca um objeto no Cluster Kubernetes com informações importantes
 - ![LabelSelector.png](.static%2FLabelSelector.png)
 - O Selector será responsável por selecionar os objetos atraves de suas Labels, utilizando as mesmas chaves e valores
+
+O que é o Service Discovery?
+- O Service Discovery serve para realizar a comunicação entre uma aplicação B e uma aplicação A escalonada.
+- Ele é responsável por receber a requisição da aplicação B e encaminhar a requisição para uma das aplicações A disponível no momento.
+- Então o Service Discovery, vai ajudar com o balanceamento de carga entre as replicas
+- ![ServiceDiscovery.png](.static%2FServiceDiscovery.png)
+
+Existem três tipos de Service
+- ClusterIP: (Visto no Service Discovery) Ponto unico de comunicação com os PODs, mas internamente no Cluster Kubernetes, ou seja, se for desejado realizar o acesso internamente dos PODs, é com o Service do tipo ClusterIP que será utilizado, se for desejado fazer o acesso externamente, não será possivel. 
+- NodePort: Cria um acesso externo para os PODs. É possível acessar de fora do Cluster Kubernetes, os PODs atraves do Service NodePort
+  - Expoe a aplicação para acesso externo.
+  - Utiliza um range de porta especifico que o Kubernetes libera. Fica entre 30000 e 32767
+  - ![NodePort.png](.static%2FNodePort.png)
+- LoadBalancer: 

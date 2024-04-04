@@ -185,3 +185,22 @@ Como acessar o Service na maquina local, para testar o POD?
   acessado apos exposição da porta utilizando o seguinte comando:
 - ```kubectl port-forward <nome-service> <porta-local>:<porta-pod>```
 - Exemplo: ```kubectl port-forward service/postgre 5432:5432```
+
+Como expor a porta do serviço web sem a necessidade de usar o port-forward?
+- Faça a deleção do cluster criado anteriormente com o seguinte comando:
+- ```k3d cluster delete meucluster```
+- Recrie o cluster utilizando o parametro X no comando a seguir:
+- ```k3d cluster create meucluster --servers 3 --agents 3 -p 
+<porta-maquina-local>:<porta-container@loadbalancer>```
+- Exemplo: ```k3d cluster create meucluster --servers 3 --agents 3 -p 
+  "30000:30000@loadbalancer"```
+- No 'Arquivo Manifesto', no Service da aplicação Web, em ports, adicione a 
+  chave nodePort e o valor 30000
+- Em seguida execute as definições do 'Arquivo Manifesto' com o seguinte 
+  comando:
+- ```kubectl apply -f k8s/deploy.yaml```
+
+Como aplicar as definições do 'Arquivo Manifesto' e assistir as 
+atualizações que acontecem nos antigos objetos?
+- Execute o seguinte comando:
+- ```kubectl apply -f k8s/deploy.yaml && watch 'kubectl get pod'```

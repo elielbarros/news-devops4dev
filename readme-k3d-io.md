@@ -204,3 +204,13 @@ Como aplicar as definições do 'Arquivo Manifesto' e assistir as
 atualizações que acontecem nos antigos objetos?
 - Execute o seguinte comando:
 - ```kubectl apply -f k8s/deploy.yaml && watch 'kubectl get pod'```
+
+Como ver o historico de mudança do ReplicaSet?
+- Execute o seguinte comando:
+- ```kubectl rollout history deployment <nome-do-service>```
+- Exemplo: ```kubectl rollout history deployment web```
+
+Como fazer o rollback para a versao antiga do ReplicaSet?
+- Execute o seguinte comando:
+- ```kubectl rollout undo deployment <nome-do-service>```
+- Exemplo: ```kubectl rollout undo deployment web && watch 'kubectl get pod'```

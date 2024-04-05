@@ -69,7 +69,6 @@ spec:
             - name: DB_HOST
               value: postgre # Seria o host como localhost, mas utilizamos o nome do service postgre que o kubernetes resolve a comunicação
 ---
----
 apiVersion: v1
 kind: Service
 metadata:

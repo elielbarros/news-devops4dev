@@ -56,7 +56,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: elielbs/devops4devs-news:v3
+          image: elielbs/devops4devs-news:v5
           ports:
             - containerPort: 8080
           env:

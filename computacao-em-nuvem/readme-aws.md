@@ -100,3 +100,23 @@ O que é o S3?
       consumir mais espaço no serviço S3 e ser cobrado por isso
     - O restante das informações serão permanecidas com o default
     - Clique em 'Create Bucket'
+
+Utilizando o Bucket do S3 via código
+- Nesse projeto, foi necessário utilizar o multer, multer-s3 e @aws-sdk/client-s3
+- Com essas bibliotecas, foi possível utilizar o S3, olhar o arquivo server.
+  js com a implementação
+- Após implementação, é necessário executar o comando ```npm install @aws-sdk/client-s3 multer multer-s3```
+- Esse comando vai instalar as informações dessas bibliotecas e colocar no 
+  package.json e no package-lock.json as informações necessárias para rodar 
+  o container depois.
+
+# É necessário atualizar o deploy.yaml com as variaveis de ambiente utilizadas no arquivo server.js
+- Crie uma nova security credentials
+- IAM > Users > administrador > Security Credentials > Create Access key
+- Escolha a opção CLI
+- Description tag value > Application access
+- Após atualizar o Manifesto, faça o build da imagem e push para o Docker 
+  Registry com a nova versao
+- ```docker build -t elielbs/devops4devs-news:v3 --push .```
+- Atualize o manifesto com a nova versao da imagem
+- Remova o antigo cluster, crie um novo e aplique as definiçoes do manifesto

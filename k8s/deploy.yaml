@@ -56,7 +56,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: elielbs/devops4devs-news:v1
+          image: elielbs/devops4devs-news:v3
           ports:
             - containerPort: 8080
           env:
@@ -68,6 +68,16 @@ spec:
               value: "newspwd"
             - name: DB_HOST
               value: postgre # Seria o host como localhost, mas utilizamos o nome do service postgre que o kubernetes resolve a comunicação
+            - name: AWS_ACCESS_KEY
+              value: "AKIAVRUVT6GBUQVCNZM7"
+            - name: AWS_ACCESS_SECRET
+              value: "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"
+#            - name: AWS_REGION
+#              value:
+            - name: AWS_S3_BUCKET_NAME
+              value: study-news-files
+            - name: STORAGE_TYPE
+              value: S3
 ---
 apiVersion: v1
 kind: Service

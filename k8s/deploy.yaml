@@ -69,9 +69,9 @@ spec:
             - name: DB_HOST
               value: postgre # Seria o host como localhost, mas utilizamos o nome do service postgre que o kubernetes resolve a comunicação
             - name: AWS_ACCESS_KEY
-              value: "AKIAVRUVT6GBUQVCNZM7"
+              value: ""
             - name: AWS_ACCESS_SECRET
-              value: "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"
+              value: ""
 #            - name: AWS_REGION
 #              value:
             - name: AWS_S3_BUCKET_NAME

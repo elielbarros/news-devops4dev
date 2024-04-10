@@ -46,9 +46,27 @@ Criação do Cluster Kubernetes
 - Na pagina "Review and create" apenas clique no botão "Create"
 - O processo de criação do cluster leva cerca de 15 minutos
 
-Utilize o AWS CLI para utilizar o Cluster da AWS
-- Execute o comando: ```aws eks update-kubeconfig --name 
-  <nome-cluster-kubernetes-criado-aws>```
+Utilize o AWS CLI para o Cluster da AWS
+- Execute o comando: ```aws eks update-kubeconfig --name <nome-cluster-kubernetes-criado-aws>```
 - Exemplo: ```aws eks update-kubeconfig --name news-eks```
 - Será necessário atualizar o Manifesto (deploy.yaml), mudando o tipo de 
   porta de NodePort para LoadBalancer
+
+Crie um "Node Group"
+- Acesse a pagina EKS (Elastic Kubernetes Service)
+- Clique no EKS criado (atualmente, news-eks)
+- Acesse a aba "Compute"
+- Em "Node Groups", clique no botão "Add node group"
+- Na pagina "Configure node group", no campo "Name", coloque "default"
+- No campo "Node IAM role", coloque a role criada "ec2WorkerNode", depois 
+  "next"
+- Na pagina "Set compute and scaling configuration"
+  - No campo "Instance types", busque e escolha a opção "t3.medium"
+  - No campo "Minimum size" escolha 1
+  - No campo "Maximum size" escolha 4
+  - NEXT
+- Na pagina "Specify networking", como boa pratica, os "Worker Node" serão 
+  criadas apenas em subnets privadas, remova as publicas
+- NEXT
+- CREATE
+- 01:48:37

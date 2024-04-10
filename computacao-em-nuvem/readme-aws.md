@@ -57,7 +57,7 @@ Roles
 
 Como configurar a ferramenta de linha de comando (CLI)?
 - Acesse o usuario criado
-- Acesse o IAM > Users > Access Keys > Create Access Key
+- Acesse o IAM > Users > Clique no usuario > Create Access Key
 - Escolha a opção Command Line Interface (CLI)
 - Preencha a opção 'I understand the above recommendation and want to proceed to create an access key.'
 - No campo Description tag value, insira um valor que descreva. Será usado 
